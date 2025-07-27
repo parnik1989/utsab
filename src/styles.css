@@ -1,0 +1,224 @@
+/* You can add global styles to this file, and also import other style files */
+
+.footer-background {
+    background-color: grey;
+    opacity: .8;
+    border-color: #fff;
+    height: 10%;
+}
+
+.navbar-brand {
+    padding: 0px 15px 15px 15px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.bkg {
+    margin: 2% 0 0 6%;
+    height: 250px;
+    background-image: linear-gradient(transparent 40%, #fff 60%);
+    border-radius: 25%;
+}
+
+.member-image {
+    padding: 0;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+    border-radius: 50%;
+}
+
+.pos {
+    padding: 0 0 0 4%;
+}
+
+.basic-container {
+    padding: 5px;
+    margin: 0 20%;
+}
+
+.caption {
+    display: block;
+    text-align: center;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+body {
+    background-color: black;
+    background-size: cover
+}
+
+.middle-text {
+    margin: 0 10%
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    width: 100%;
+    z-index: 1000
+}
+
+.header-background {
+    background-color: #fff;
+    border-color: #fff
+}
+
+.member-details {
+    text-align: center!important;
+    font-family: 'Montaga, serif';
+    color: #fff
+}
+
+.page-border {
+    border-color: 3px #fff;
+    border-style: dotted double;
+    padding-top: 2px
+}
+
+h4 {
+    padding: 2%;
+    font-size: 30px;
+    font-family: 'Righteous,cursive';
+    color: #b22222;
+    text-align: justify
+}
+
+a {
+    cursor: pointer;
+    color: #fff
+}
+
+p {
+    padding: 2%;
+    font-size: 20px;
+    font-family: 'Montaga, serif';
+    color: #fff;
+    text-align: justify
+}
+
+.heading {
+    font-family: 'Macondo Swash Caps', cursive;
+    text-align: center;
+    color: #fff;
+    font-weight: 900;
+    font-size: 60px
+}
+
+.heading2 {
+    font-family: 'Macondo Swash Caps', cursive;
+    text-align: center;
+    color: #fff;
+    font-weight: 900
+}
+
+.message-board {
+    margin-top: 5%;
+    border: 10px groove red;
+    height: 325px;
+    border-radius: 5%;
+    padding: 10%
+}
+
+.sponser-tile {
+    background-color: red
+}
+
+.carousel-inner .carousel-item {
+    transition: -webkit-transform 5s ease;
+    transition: transform 5s ease;
+    transition: transform 5s ease, -webkit-transform 5s ease
+}
+
+.data {
+    margin: 1% 3%;
+    word-wrap: break-word
+}
+
+.puja-image {
+    width: 90%;
+    height: 100%;
+    margin: 2%
+}
+
+.text-header {
+    background: grey;
+    border: 6px solid #fff;
+    font-family: Righteous, cursive;
+    color: #fff!important
+}
+
+a.list-group-item:focus,
+a.list-group-item:hover,
+button.list-group-item:focus,
+button.list-group-item:hover {
+    background: #a9a9a9
+}
+
+.page-image {
+    padding: 2%
+}
+
+.basic-container {
+    padding: 5px;
+    margin: 0 20%
+}
+
+button {
+    display: inline-block;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #000
+}
+
+.nav-tabset:not(.disable-style) .nav-tab.active {
+    font-weight: bold;
+    color: white;
+}
+
+.nav-tabset:not(.disable-style) .nav-tab {
+    font-weight: bold;
+    color: white;
+}
+
+@media only screen and (max-width:700px) {
+    .basic-container {
+        padding: 5px;
+        margin: 0
+    }
+    .middle-text {
+        margin: 0
+    }
+    .default {
+        padding: 0
+    }
+}
+
+@media (max-width:600px) {
+    .page-image {
+        padding: 1% 10%
+    }
+}
+
+@media screen and (min-width:300px) and (max-width:750px) {
+    body {
+        background-size: 100% 560px
+    }
+    .heading {
+        font-size: 40px
+    }
+}
