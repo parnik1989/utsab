@@ -1,0 +1,44 @@
+.basic-container {
+    padding: 5px;
+    margin: 0%;
+}
+
+img {
+    width: 100%;
+    padding: 2% 0%;
+}
+.heading {
+    font-size: 30px;
+}
+h2 {
+    margin: 0px;
+}
+button {
+    display: inline-block;
+    background-color: #c60817;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 180px;
+    height: 35px;
+    font-family: 'Macondo Swash Caps';
+    text-align: center;
+    color: red;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 15%;
+    border: 2px solid red;
+    width:40%
+}
+
+.bottom-left {
+    position: absolute;
+    right: 5%;
+}
+
+.bottom-right {
+    position: absolute;
+    right: 55%;
+}
+.button-position {
+    height: auto;
+}
