@@ -4,7 +4,8 @@ import { LaptopComponent } from '../laptop/laptop.component';
 
 @Component({
   selector: 'app-home',
-  imports: [MobileComponent,LaptopComponent],
+  standalone: true,
+  imports: [MobileComponent, LaptopComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
