@@ -4,6 +4,8 @@ import { EcmembersComponent } from './ecmembers/ecmembers.component';
 import { Durgotsav2025Component } from './durgotsav2025/durgotsav2025.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
 import { ContactComponent } from './contact/contact.component';
+import { CollaborationComponent } from '../collaboration/collaboration.component';
+import { DonationComponent } from '../donation/donation.component';
 
 export const routes: Routes = [
   { path: '', component:  HomeComponent },
@@ -12,5 +14,7 @@ export const routes: Routes = [
   { path: 'durgotsav2025', component:  Durgotsav2025Component },
   { path: 'sponsors', component:  SponsorsComponent },
   { path: 'contact', component:  ContactComponent },
+  { path: 'collaboration', component:  CollaborationComponent },
+  { path: 'donation', component:  DonationComponent },
   { path: '**',component: HomeComponent}
 ];

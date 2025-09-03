@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "utsab-prod-b844f"
-  }
+    "default": "utsab-prod-b844f",
+    "main": "utsab-t2"
+  },
+  "targets": {},
+  "etags": {}
 }

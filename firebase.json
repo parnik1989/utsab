@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/ucaweb/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
