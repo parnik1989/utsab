@@ -21,5 +21,31 @@ jobs:
       - name: Install Dependencies
         run: npm install 
 
-      - name: Build Angular Application
-        run: npm run build
+      - name: Build Angular (production) and set base-href to repo name
+        # adjust the output folder name below if your angular.json uses a different outputPath
+        run: |
+          REPO_NAME="utsab"
+          echo "Building with base-href=/$REPO_NAME/"
+          npm run build --configuration production --base-href="/${REPO_NAME}/"
+
+      - name: Prepare SPA fallback (copy index.html => 404.html)
+        run: |
+          # update dist path if different (angular.json outputPath)
+          DIST_PATH="dist/ucaweb"
+          if [ -d "$DIST_PATH" ]; then
+            cp "$DIST_PATH/index.html" "$DIST_PATH/404.html"
+          else
+            echo "ERROR: dist path $DIST_PATH not found"
+            exit 1
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist/ucaweb
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
