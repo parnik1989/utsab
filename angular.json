@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/ucaweb/browser",
+            "outputPath": "dist/ucaweb/browser/browser",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [

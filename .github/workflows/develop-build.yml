@@ -34,8 +34,8 @@ jobs:
       - name: Locate dist and prepare SPA fallback + debug
         run: |
           # detect correct dist folder (Angular v15+ with Universal may have /browser)
-          if [ -d "dist/ucaweb/browser" ]; then
-            DIST="dist/ucaweb/browser"
+          if [ -d "dist/ucaweb/browser/browser" ]; then
+            DIST="dist/ucaweb/browser/browser"
           elif [ -d "dist/ucaweb" ]; then
             DIST="dist/ucaweb"
           else
@@ -58,7 +58,7 @@ jobs:
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist/ucaweb/browser
+          path: ./dist/ucaweb/browser/browser
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
