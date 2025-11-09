@@ -24,7 +24,7 @@ jobs:
       - name: Build Angular (production) and set base-href to repo name
         # adjust the output folder name below if your angular.json uses a different outputPath
         run: |
-          REPO_NAME="utsab"
+          REPO_NAME="ucaweb"
           echo "Building with base-href=/$REPO_NAME/"
           npm run build --configuration production --base-href="/${REPO_NAME}/"
 
