@@ -28,14 +28,14 @@ jobs:
       - name: Build Angular (production) and set base-href to repo name
         # adjust the output folder name below if your angular.json uses a different outputPath
         run: |
-          REPO_NAME="dist/ucaweb"
+          REPO_NAME="dist/utsab"
           echo "Building with base-href=/$REPO_NAME/"
           npm run build -- --configuration production --base-href="/${REPO_NAME}/"
       - name: Locate dist and prepare SPA fallback + debug
         run: |
           # detect correct dist folder (Angular v15+ with Universal may have /browser)
-          if [ -d "dist/ucaweb" ]; then
-            DIST="dist/ucaweb"
+          if [ -d "dist/utsab" ]; then
+            DIST="dist/utsab"
           else
             echo "ERR: dist folder not found"
             ls -la dist || true
@@ -56,7 +56,7 @@ jobs:
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist/ucaweb
+          path: ./dist/utsab/browser
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
