@@ -31,7 +31,27 @@ jobs:
           REPO_NAME="ucaweb"
           echo "Building with base-href=/$REPO_NAME/"
           npm run build -- --configuration production --base-href="/${REPO_NAME}/"
-
+      - name: Locate dist and prepare SPA fallback + debug
+        run: |
+          # detect correct dist folder (Angular v15+ with Universal may have /browser)
+          if [ -d "dist/ucaweb/browser" ]; then
+            DIST="dist/ucaweb/browser"
+          elif [ -d "dist/ucaweb" ]; then
+            DIST="dist/ucaweb"
+          else
+            echo "ERR: dist folder not found"
+            ls -la dist || true
+            exit 1
+          fi
+          echo "Using DIST=$DIST"
+          echo "Contents of $DIST:"
+          ls -la "$DIST"
+          echo "---- index.html (first 200 lines) ----"
+          sed -n '1,200p' "$DIST/index.html" || true
+          echo "---- end index.html ----"
+          # ensure SPA fallback
+          cp "$DIST/index.html" "$DIST/404.html"
+          echo "Copied index.html -> 404.html"
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
 
