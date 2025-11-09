@@ -26,7 +26,7 @@ jobs:
         run: |
           REPO_NAME="ucaweb"
           echo "Building with base-href=/$REPO_NAME/"
-          npm run build --configuration production --base-href="/${REPO_NAME}/"
+          npm run build -- --configuration production --base-href="/${REPO_NAME}/"
 
       - name: Prepare SPA fallback (copy index.html => 404.html)
         run: |
