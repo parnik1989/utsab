@@ -1,15 +1,9 @@
-name: Main Build
+name: Develop Build
 
 on:
   push:
     branches:
-      - main # Trigger on pushes to the main branch
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
-      
+      - develop # Trigger on pushes to the develop branch
 permissions:
   contents: read
   pages: write
