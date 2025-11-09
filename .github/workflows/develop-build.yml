@@ -28,17 +28,6 @@ jobs:
           echo "Building with base-href=/$REPO_NAME/"
           npm run build -- --configuration production --base-href="/${REPO_NAME}/"
 
-      - name: Prepare SPA fallback (copy index.html => 404.html)
-        run: |
-          # update dist path if different (angular.json outputPath)
-          DIST_PATH="dist/ucaweb"
-          if [ -d "$DIST_PATH" ]; then
-            cp "$DIST_PATH/index.html" "$DIST_PATH/404.html"
-          else
-            echo "ERROR: dist path $DIST_PATH not found"
-            exit 1
-          fi
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
 
