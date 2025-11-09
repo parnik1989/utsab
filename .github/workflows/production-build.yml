@@ -1,9 +1,19 @@
-name: Production Build
+name: Main Build
 
 on:
   push:
     branches:
       - main # Trigger on pushes to the main branch
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+      
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -19,7 +29,40 @@ jobs:
           node-version: '22.12.0' # Specify the Node.js version
 
       - name: Install Dependencies
-        run: npm install # Use npm ci for clean installation in CI environments
+        run: npm install 
 
-      - name: Build Angular Application
-        run: npm run build -- --configuration=production
+      - name: Build Angular (production) and set base-href to repo name
+        # adjust the output folder name below if your angular.json uses a different outputPath
+        run: |
+          REPO_NAME="utsab"
+          echo "Building with base-href=/$REPO_NAME/"
+          npm run build -- --configuration production --base-href="/${REPO_NAME}/"
+      - name: Locate dist and prepare SPA fallback + debug
+        run: |
+          # detect correct dist folder (Angular v15+ with Universal may have /browser)
+          if [ -d "dist/utsab" ]; then
+            DIST="dist/utsab"
+          else
+            echo "ERR: dist folder not found"
+            ls -la dist || true
+            exit 1
+          fi
+          echo "Using DIST=$DIST"
+          echo "Contents of $DIST:"
+          ls -la "$DIST"
+          echo "---- index.html (first 200 lines) ----"
+          sed -n '1,200p' "$DIST/browser/index.html" || true
+          echo "---- end index.html ----"
+          # ensure SPA fallback
+          cp "$DIST/browser/index.html" "$DIST/browser/404.html"
+          echo "Copied index.html -> 404.html"
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist/utsab/browser
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
