@@ -1,0 +1,25 @@
+name: Develop Build
+
+on:
+  push:
+    branches:
+      - develop # Trigger on pushes to the develop branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Specify the operating system for the runner
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4 # Action to check out your repository code
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0' # Specify the Node.js version
+
+      - name: Install Dependencies
+        run: npm install 
+
+      - name: Build Angular Application
+        run: npm run build
