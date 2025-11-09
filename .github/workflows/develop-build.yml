@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist/ucaweb
+          path: ./dist/ucaweb/browser
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
